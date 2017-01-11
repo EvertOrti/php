@@ -19,7 +19,7 @@ class ctext extends text
     function show()
     {
         if($this->color === false){
-        parent:show(); // use parent class show function
+        parent::show(); // use parent class show function
         } else {
             echo '<font color="'.$this->color.'">'.$this->str.'</font><br/>';
         }
