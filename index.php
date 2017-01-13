@@ -14,7 +14,12 @@ require_once CLASSES_DIR.'template.php';
 // create an template object,
 // set up the file name for template
 // load template file content
-$tmpl = new template('main.html');
+$tmpl = new template('main');
+// add pairs of template names and real value
+$tmpl->set('menu', 'minu navigatsioon');
+$tmpl->set('nav_bar', 'minu keeleriba');
+$tmpl->set('lang_bar', 'minu keeleriba');
+$tmps->set('content', 'minu sisu');
 // control the content of template object
 echo '<pre>';
 print_r($tmpl);
