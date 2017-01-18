@@ -46,7 +46,7 @@ echo SCRIPT_NAME.'<br />';
 echo HTTP_HOST.'<br />';
 echo '<hr />';
 // create http data pairs and set up into $http->vars array
-$http->set('kasutaja', 'Anna');
+$http->set('kasutaja', 'evert');
 $http->set('tund', 'php programmeerimisvahendid');
 // control $http->vars object output
 echo '<pre>';
@@ -62,4 +62,11 @@ $linkobject = new linkobject();
 echo '<pre>';
 print_r($linkobject);
 echo '</pre>';
+
+echo'<pre>';
+print_r($http->vars);
+echo'</pre>';
+$link ='';
+$http->addToLink($link, 'kasutaja', 'evert');
+$http->addToLink($link, 'parool', 'qwerty');
 ?>

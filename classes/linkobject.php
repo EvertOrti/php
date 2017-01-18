@@ -7,6 +7,10 @@
  */
 // only for testing
 // import http class
+// useful function for this class
+function fixUrl($val){
+    return urlencode($val);
+}// fixUrl
 require_once 'http.php';
 // only for testing
 class linkobject extends http
@@ -24,8 +28,12 @@ class linkobject extends http
         $this->baseURL = $this->protocol.HTTP_HOST.SCRIPT_NAME;
     } //construct
     //create http data pairs and merge them
-    function addToLink($link, $name, $val) {
-         //create pair: element_name=Element_value
-        $link = $name.$this->eq.$val;
+    //merge is realised by &$ink
+    function addToLink(&$link, $name, $val) {
+        if ($link != '') {
+            $link .= $this->delim;
+        } //create pair: element_name=Element_value
+        $link = fixUrl($name).$this->eq.fixUrl($val);
+        echo $link;
     }
 }//class end
