@@ -10,11 +10,26 @@
 //for menu and menu items
 $menu= new template('menu.menu'); //file menu driectory file menu.html menu/menu.html
 $item = new template('menu.item');
+// add pairs of temlate element names and real values
+$item->set('name','Esimene leht');
+$link = $http->getLink(array('page'=>'first'));
+$item->set('link', $link);
+//echo '<pre>';
+//print_r($item);
+//echo '</pre>';
+//echo $item->parse();
+
+//add menu
+$menu->set('items',$item->parse());
+//2nd page
+$item->set('name','Teine leht');
+$link = $http->getLink(array('page'=>'second'));
+$item->set('link', $link);
 echo '<pre>';
 print_r($menu);
-print_r($item);
 echo '</pre>';
-
+//output menu
+echo $menu->parse();
 
 
 
