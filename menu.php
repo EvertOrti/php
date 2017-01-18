@@ -12,7 +12,7 @@ $menu= new template('menu.menu'); //file menu driectory file menu.html menu/menu
 $item = new template('menu.item');
 // add pairs of temlate element names and real values
 $item->set('name','Esimene leht');
-$link = $http->getLink(array('page'=>'first'));
+$link = $http->getLink(array('act'=>'first'));
 $item->set('link', $link);
 //echo '<pre>';
 //print_r($item);
@@ -23,7 +23,7 @@ $item->set('link', $link);
 $menu->set('items',$item->parse());
 //2nd page
 $item->set('name','Teine leht');
-$link = $http->getLink(array('page'=>'second'));
+$link = $http->getLink(array('act'=>'second'));
 $item->set('link', $link);
 
 $menu->add('items', $item->parse()); //add another  item

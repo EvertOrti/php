@@ -6,6 +6,9 @@
  * Date: 18.01.2017
  * Time: 8:56
  */
+function fixHtml($val) {
+    return htmlentities($val);
+}//fixHTML
 class http
 {// http begin
     // class variables
@@ -38,4 +41,15 @@ class http
     function set($name, $val){
         $this->vars[$name] = $val;
     }// set
+    // get element_value according to the element_name
+    function get($name, $fix = true) {
+            if(isset($this->vars[$name])) {
+                if($fix) {
+                    return fixHTML($this->vars[$name]);
+                }
+                return $this->vars[$name];
+            }
+        return false;
+}//get
 }// http end
+?>
