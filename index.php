@@ -47,6 +47,7 @@ echo HTTP_HOST.'<br />';
 echo '<hr />';
 // create http data pairs and set up into $http->vars array
 $http->set('kasutaja', 'evert');
+$http->set('parool', 'qwerty');
 $http->set('tund', 'php programmeerimisvahendid');
 // control $http->vars object output
 echo '<pre>';
