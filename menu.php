@@ -25,6 +25,8 @@ $menu->set('items',$item->parse());
 $item->set('name','Teine leht');
 $link = $http->getLink(array('page'=>'second'));
 $item->set('link', $link);
+
+$menu->add('items', $item->parse()); //add another  item
 echo '<pre>';
 print_r($menu);
 echo '</pre>';

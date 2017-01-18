@@ -67,9 +67,9 @@ class template
     } //set
     //add to html template another real values
     function add($name, $val) {
-        if(!isset)($this->vars[$name]) {
-            $this->set($name, $val)
-                }else{
+        if(!isset($this->vars[$name])) {
+            $this->set($name, $val);
+                } else {
             $this->vars[$name] .= $val;
         }
     }//add
