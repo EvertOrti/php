@@ -44,6 +44,10 @@ class template
         if(file_exists($f) and is_file($f) and is_readable($f)){
             $this->readFile($f);
         }
+        // if html template files are in inner directories
+        // represented as dir.fil
+        $f = TMPL_DIR.str_replace('.','/', this->file).'.html');
+        //if some
         if($this->content === false){
             echo 'Ei saanud lugeda faili '.$this->file.'.<br/>';
             exit;
