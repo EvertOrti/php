@@ -1,0 +1,16 @@
+/* Autor: Evert */
+
+table {
+    border: collapse;
+    border-radius: 5px;
+    align-self: center;
+    background-color: #edfeff;
+
+
+}
+
+th, td {
+    padding-left: 20px;
+    font-family: "Arial Black";
+    font-size: 13px;
+}

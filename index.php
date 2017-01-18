@@ -7,21 +7,27 @@
  * Time: 12:58
  */
 // create and template object
+define('STYLE_DIR', 'CSS/');
 define('CLASSES_DIR', 'classes/');
 define('TMPL_DIR', 'tmpl/');
 require_once CLASSES_DIR.'template.php';
+
 // and use it
 // create an template object,
 // set up the file name for template
 // load template file content
 $tmpl = new template('main');
 // add pairs of template names and real value
+$tmpl->set('style', STYLE_DIR.'main'.'css');
+$tmpl->set('title', 'minu lehe pealkiri');
 $tmpl->set('menu', 'minu navigatsioon');
 $tmpl->set('nav_bar', 'minu keeleriba');
 $tmpl->set('lang_bar', 'minu keeleriba');
-$tmps->set('content', 'minu sisu');
+$tmpl->set('content', 'minu sisu');
 // control the content of template object
 echo '<pre>';
 print_r($tmpl);
 echo '</pre>';
+
+echo $tmpl->parse();
 ?>
