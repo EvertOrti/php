@@ -10,5 +10,8 @@
 require_once 'http.php';
 // only for testing
 class linkobject extends http
-{
+{//class begin
+    //class variables
+    var baseUrl = false; // base url
+    var protocol = 'http://'; // protocol for url - http
 }
