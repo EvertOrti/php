@@ -23,5 +23,9 @@ class linkobject extends http
         parent::__construct();
         $this->baseURL = $this->protocol.HTTP_HOST.SCRIPT_NAME;
     } //construct
-
+    //create http data pairs and merge them
+    function addToLink($link, $name, $val) {
+         //create pair: element_name=Element_value
+        $link = $name.$this->eq.$val;
+    }
 }//class end

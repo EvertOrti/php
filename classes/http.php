@@ -38,4 +38,4 @@ class http
     function set($name, $val){
         $this->vars[$name] = $val;
     }// set
-}// http end
+}// http endk

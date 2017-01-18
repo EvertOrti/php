@@ -62,4 +62,4 @@ $linkobject = new linkobject();
 echo '<pre>';
 print_r($linkobject);
 echo '</pre>';
-?>?>
+?>
