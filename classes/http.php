@@ -45,7 +45,7 @@ class http
     function get($name, $fix = true) {
             if(isset($this->vars[$name])) {
                 if($fix) {
-                    return fixHTML($this->vars[$name]);
+                    return fixHtml($this->vars[$name]);
                 }
                 return $this->vars[$name];
             }

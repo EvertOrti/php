@@ -16,20 +16,44 @@ class mysql
         var $dbname = false; //database server user database
         // class methods
         //construct
-        function__construct($h, $u,$p,$dn) {
+        function __construct ($h, $u, $p, $dn) {
             $this->host = $h;
             $this->user = $u;
             $this->pass = $p;
             $this->dbname = $dn;
-}//construct
+            $this->connect();
+ }//construct
         //connect to database server and use database
         function connect (){
             $this->conn = mysqli_connect($this->host, $this->user,$this->pass,$this->dbname);
-            if($this->conn) {
+            if(!$this->conn) {
                 echo 'Probleem andmebaasi ühendamisega<br>';
                 exit;
             }
         }//connect
+        //query to database
+    function query($sql) {
+        $res = mysqli_query($this->conn, $sql);
+        if($res === FALSE) {
+            echo 'Viga päringus <b>'.$sql.'</b><br>';
+            echo mysqli_error($this->conn).'.<br>';
+            exit;
+        }
+            return $res;
+    }//query
+    //query with data
+    function getArray($sql) {
+        $res = $this->query($sql);
+        $data = array();
+        while($record = mysqli_fetch_assoc($res)) {
+             $data[] = $record;
+        }
+        if(count ($data) == 0) {
+            return false;
+        }
+        return $data;
+    } //getArray
+
 
 }//class end
 ?>

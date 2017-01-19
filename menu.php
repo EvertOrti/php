@@ -27,7 +27,6 @@ $link = $http->getLink(array('act'=>'second'));
 $item->set('link', $link);
 
 $menu->add('items', $item->parse()); //add another  item
-echo "waddap?";
 
 
 

@@ -18,8 +18,7 @@ $tmpl = new template('main');
 $tmpl->set('style', STYLE_DIR.'main'.'.css');
 $tmpl->set('header', 'minu lehe pealkiri');
 
-// create and output http object from linkobject class
-$http = new linkobject();
+
 // create and output menu
 // import menu file
 require_once 'menu.php'; // in this file is menu creation
@@ -33,4 +32,14 @@ echo $tmpl->parse();
 
 
 require_once 'act.php';
+
+
+$sql = 'SELECT NOW();';
+$res = $db->query($sql);
+//control query
+//create connection in database server
+
+echo '<pre>';
+print_r($res);
+echo '</pre>';
 ?>

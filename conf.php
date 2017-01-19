@@ -17,6 +17,15 @@ define('DEFAULT_ACT', 'default');
 require_once CLASSES_DIR.'template.php';
 require_once CLASSES_DIR.'http.php';// import http class
 require_once CLASSES_DIR.'linkobject.php';// import linkobject class
+require_once CLASSES_DIR.'mysql.php';//import database class
+
+
+require_once 'db_conf.php';
+//create output http 
 $http = new linkobject();
+
+//create database object
+$db = new mysql(DBHOST, DBUSER, DBPASS , DBNAME);
+
 
 ?>
