@@ -35,11 +35,18 @@ require_once 'act.php';
 
 
 $sql = 'SELECT NOW();';
-$res = $db->query($sql);
+$res = $db->getArray($sql);
 //control query
 //create connection in database server
 
 echo '<pre>';
 print_r($res);
 echo '</pre>';
+
+//query time control
+echo '<pre>';
+print_r($db->history);
+echo '</pre>';
+
+$db->showHistory();
 ?>

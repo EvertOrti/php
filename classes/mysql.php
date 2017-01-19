@@ -14,6 +14,7 @@ class mysql
         var $user = false; //database server user
         var $pass = false; //database server user password
         var $dbname = false; //database server user database
+        var $history = array(); //database query log
         // class methods
         //construct
         function __construct ($h, $u, $p, $dn) {
@@ -31,14 +32,27 @@ class mysql
                 exit;
             }
         }//connect
+    
+        //control query time
+        FUNCTION getMicroTime() {
+            list($usec, $sec) = explode(" ", microtime());
+            return ((float)$usec + (float)$sec);
+        }//getMicroTime
+
         //query to database
     function query($sql) {
+        $begin = $this->getMicroTime();
         $res = mysqli_query($this->conn, $sql);
         if($res === FALSE) {
             echo 'Viga päringus <b>'.$sql.'</b><br>';
             echo mysqli_error($this->conn).'.<br>';
             exit;
         }
+            $time = $this->getMicroTime() - $begin;
+            $this->history[] = array(
+                'sql' => $sql,
+                'time' => $time
+            );
             return $res;
     }//query
     //query with data
@@ -54,6 +68,16 @@ class mysql
         return $data;
     } //getArray
 
+    //output query history log array
+    function showHistory() {
+        if(count($this->history)> 0) {
+            echo '<hr>';
+            foreach($this->history as $key=>$val) {
+                echo '<li>'.$val['sql'].'<br>';
+                echo '<strong>'.round($val['time'], 6).'</strong><br></li>';
+            }
+        }
+    } //showHistory
 
 }//class end
 ?>
