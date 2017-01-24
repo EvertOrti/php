@@ -10,6 +10,24 @@
 //for menu and menu items
 $menu= new template('menu.menu'); //file menu driectory file menu.html menu/menu.html
 $item = new template('menu.item');
+// main menu content query
+$sql = 'SELECT content_id, title FROM content WHERE'.
+    'parent_id="0" AND show_in_menu="1"';
+// get menu data from database
+$sql = $sql.' ORDER BY sort ASC';
+$res = $db->getArray($sql);
+// create menu items from query result
+if ($res != false) {
+    foreach ($res as $page){
+        //add content to menu item
+        $item->set('name', $page['title']);
+        $link = $http->getLink(array['page_id'=>$page['content_id']]);
+        $item->set('link',$link);
+        //add item to menu
+        $menu->add('items', $item->parse());
+    }
+}
+$tmpl->set('menu', $menu->parse());
 // add pairs of temlate element names and real values
 $item->set('name','Esimene leht');
 $link = $http->getLink(array('act'=>'first'));
