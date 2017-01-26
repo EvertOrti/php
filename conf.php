@@ -26,6 +26,6 @@ $http = new linkobject();
 
 //create database object
 $db = new mysql(DBHOST, DBUSER, DBPASS , DBNAME);
-
+$db->connect();
 
 ?>

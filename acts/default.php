@@ -12,7 +12,7 @@ $sql = 'SELECT * FROM content WHERE content_id="'.$page_id.'"';
 //query to databvase
 $res = $db->getArray($sql);
 //if query is with result
-if($res !== FALSE) {
+/*if($res !== FALSE)*/ {
     //control result test output
    $page = $res[0];
     $http->set('page_id', $page['content_id']);

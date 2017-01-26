@@ -14,7 +14,7 @@ $item = new template('menu.item');
 $sql = 'SELECT content_id, title FROM content WHERE '.
     'parent_id="0" AND show_in_menu="1"';
 // get menu data from database
-$sql = $sql.' ORDER BY sort ASC';
+$sql = $sql.' ORDER BY sort ASC;';
 $res = $db->getArray($sql);
 // create menu items from query result
 if ($res != false) {
